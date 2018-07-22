@@ -39,7 +39,7 @@ class SearchproductsSpider(scrapy.Spider):
                 product = MyproductsItem()
 
                 #タイトル
-                sel.xpath('div[@class="a-row a-spacing-mini"]/div[position()=1]/a/@title').extract_first()
+                product['title'] = sel.xpath('div[@class="a-row a-spacing-mini"]/div[position()=1]/a/@title').extract_first()
                 #サームネイル
                 product['thumbnail'] = sel.xpath('div[@class="a-row a-spacing-base"]/div/div[position()=1]/a/img/@src').extract_first()
                 #キーワード
