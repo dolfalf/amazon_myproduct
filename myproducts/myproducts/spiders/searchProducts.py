@@ -18,8 +18,6 @@ class SearchproductsSpider(scrapy.Spider):
         'https://www.amazon.co.jp/s/ref=nb_sb_noss?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&url=search-alias%3Daps&field-keywords=%E5%B8%BD%E5%AD%90+%E3%83%AC%E3%83%87%E3%82%A3%E3%83%BC%E3%82%B9&rh=i%3Aaps%2Ck%3A%E5%B8%BD%E5%AD%90+%E3%83%AC%E3%83%87%E3%82%A3%E3%83%BC%E3%82%B9',
         # FBA 帽子 レディース つば広
         'https://www.amazon.co.jp/s/ref=nb_sb_noss?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&url=search-alias%3Dfashion-womens-clothing&field-keywords=%E5%B8%BD%E5%AD%90+%E3%83%AC%E3%83%87%E3%82%A3%E3%83%BC%E3%82%B9+%E3%81%A4%E3%81%B0%E5%BA%83&rh=i%3Afashion-womens-clothing%2Ck%3A%E5%B8%BD%E5%AD%90+%E3%83%AC%E3%83%87%E3%82%A3%E3%83%BC%E3%82%B9+%E3%81%A4%E3%81%B0%E5%BA%83',
-
-        ,
     )
 
     # custom_settings = {'ROBOTSTXT_OBEY': False}
@@ -37,7 +35,7 @@ class SearchproductsSpider(scrapy.Spider):
                 now = dt.now(timezone('Asia/Tokyo'))
                 date = now.strftime('%Y-%m-%d')
                 jst_time = now.strftime('%Y-%m-%dT%H-%M-%S')
-                
+
                 product = MyproductsItem()
 
                 #タイトル
