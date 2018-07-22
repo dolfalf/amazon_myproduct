@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
-from pytz import timezone
-from datetime import datetime as dt
+
 from myproducts.items import MyproductsItem
 
 class SearchproductsSpider(scrapy.Spider):
@@ -26,12 +25,8 @@ class SearchproductsSpider(scrapy.Spider):
             title_str = sel.xpath('div[@class="a-row a-spacing-mini"]/div[position()=1]/a/@title').extract_first()
             # if 'FEREX' in title_str \
             #     or 'Anker' in title_str:
-            if 'FEREX' in title_str:
-
-                now = dt.now(timezone('Asia/Tokyo'))
-                date = now.strftime('%Y-%m-%d')
-                jst_time = now.strftime('%Y-%m-%dT%H-%M-%S')
-
+            if 'FEREX' in title_str
+            
                 product = MyproductsItem()
 
                 #タイトル
@@ -44,10 +39,6 @@ class SearchproductsSpider(scrapy.Spider):
                 product['detail_link'] = sel.xpath('div[@class="a-row a-spacing-mini"]/div[position()=1]/a/@href').extract_first()
                 #ページカウント
                 product['page_count'] = response.xpath('//div[@id="bottomBar"]/div/span[@class="pagnCur"]/text()').extract_first()
-                #ページURL
-                product['url'] = response.url
-                #データ取得時刻
-                product['timestamp'] = jst_time
 
                 yield product
 

@@ -15,6 +15,11 @@ SPIDER_MODULES = ['myproducts.spiders']
 NEWSPIDER_MODULE = 'myproducts.spiders'
 
 FEED_EXPORT_ENCODING='utf-8'
+FEED_FORMAT = 'csv'
+
+# AWS access key
+# AWS_ACCESS_KEY_ID = 'YOUR_ACCESS_KEY_ID'
+# AWS_SECRET_ACCESS_KEY = 'YOUR_SECRET_ACCESS_KEY'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'myproducts'

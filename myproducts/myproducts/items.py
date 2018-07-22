@@ -15,4 +15,7 @@ class MyproductsItem(scrapy.Item):
     keyword = scrapy.Field()
     detail_link = scrapy.Field()
     page_count = scrapy.Field()
+    url = scrapy.Field()
+    timestamp = scrapy.Field()
+    
     # pass
