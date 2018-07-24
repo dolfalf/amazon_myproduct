@@ -10,7 +10,7 @@ class SearchproductsSpider(scrapy.Spider):
 
     #カテゴリリンクを追加します。
     start_urls = (
-        'https://www.amazon.co.jp/s/ref=nb_sb_noss?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&url=search-alias%3Dfashion-womens&field-keywords=%E5%B8%BD%E5%AD%90+%E3%83%AC%E3%83%87%E3%82%A3%E3%83%BC%E3%82%B9&rh=n%3A2230006051%2Ck%3A%E5%B8%BD%E5%AD%90+%E3%83%AC%E3%83%87%E3%82%A3%E3%83%BC%E3%82%B9',
+        'https://www.amazon.co.jp/s/ref=nb_sb_noss?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&url=search-alias%3Dfashion&field-keywords=%E5%B8%BD%E5%AD%90+%E3%83%AC%E3%83%87%E3%82%A3%E3%83%BC%E3%82%B9&rh=n%3A2229202051%2Ck%3A%E5%B8%BD%E5%AD%90+%E3%83%AC%E3%83%87%E3%82%A3%E3%83%BC%E3%82%B9',
     )
 
     # custom_settings = {'ROBOTSTXT_OBEY': False}
@@ -21,7 +21,7 @@ class SearchproductsSpider(scrapy.Spider):
 
             #タイトルに含まれている文字列を指定
             title_str = sel.xpath('div[@class="a-row a-spacing-mini"]/div[position()=1]/a/@title').extract_first()
-            
+
             if 'UNICONA' in title_str:
 
                 now = dt.now(timezone('Asia/Tokyo'))
