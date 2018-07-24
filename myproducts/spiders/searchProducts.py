@@ -20,7 +20,7 @@ class SearchproductsSpider(scrapy.Spider):
         for sel in response.xpath('//div[@class="s-item-container"]'):
 
             #タイトルに含まれている文字列を指定
-            title_str = sel.xpath('div[@class="a-row a-spacing-mini"]/div[position()=1]/a/@title').extract_first()
+            title_str = sel.xpath('div[@class="a-row a-spacing-none"]/div[@class="a-row a-spacing-mini"]/a[@class="a-link-normal s-access-detail-page  s-color-twister-title-link a-text-normal"]/@title).extract_first()
 
             if 'UNICONA' in title_str:
 
@@ -31,13 +31,13 @@ class SearchproductsSpider(scrapy.Spider):
                 product = MyproductsItem()
 
                 #タイトル
-                sel.xpath('div[@class="a-row a-spacing-mini"]/div[position()=1]/a/@title').extract_first()
+                sel.xpath('div[@class="a-row a-spacing-none"]/div[@class="a-row a-spacing-mini"]/a[@class="a-link-normal s-access-detail-page  s-color-twister-title-link a-text-normal"]/@title).extract_first()
                 #サームネイル
-                product['thumbnail'] = sel.xpath('div[@class="a-row a-spacing-base"]/div/div[position()=1]/a/img/@src').extract_first()
+                product['thumbnail'] = sel.xpath('div[@class="a-row a-spacing-base"]/div/a/img/@src').extract_first()
                 #キーワード
                 product['keyword'] = response.xpath('//input[@id="twotabsearchtextbox"]/@value').extract_first()
                 #リンク
-                product['detail_link'] = sel.xpath('div[@class="a-row a-spacing-mini"]/div[position()=1]/a/@href').extract_first()
+                product['detail_link'] = sel.xpath('div[@class="a-row a-spacing-none"]/div[@class="a-row a-spacing-mini"]/div[position()=1]/a/@href').extract_first()
                 #ページカウント
                 product['page_count'] = response.xpath('//div[@id="bottomBar"]/div/span[@class="pagnCur"]/text()').extract_first()
                 #ページURL
