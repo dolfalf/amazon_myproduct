@@ -21,6 +21,7 @@ class SearchproductsSpider(scrapy.Spider):
 
             #タイトルに含まれている文字列を指定
             title_str = sel.xpath('div[@class="a-row a-spacing-mini"]/div[position()=1]/a/@title').extract_first()
+            
             if 'UNICONA' in title_str:
 
                 now = dt.now(timezone('Asia/Tokyo'))
